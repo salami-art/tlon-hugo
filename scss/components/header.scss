@@ -1,0 +1,63 @@
+.navbar-primary {
+  min-height: $navbar-height;
+  display: flex;
+  justify-content: center;
+  &.is-spaced {
+    padding: 1rem 2rem;
+  }
+}
+.navbar-secondary {
+  align-items: stretch;
+  display: flex;
+  min-height: $navbar-height;
+  border-bottom: 2px solid #9B9B9B;
+  &.is-spaced {
+    padding: 1rem 2rem;
+  }
+  &.is-white {
+    background-color: white;
+    color: #0a0a0a;
+    .navbar-start, .navbar-end {
+      align-items: center;
+      display: flex;
+      &> a.navbar-item {
+        color: #0a0a0a;
+        &:hover {
+          background-color: transparent;
+          color: #9B9B9B;
+        }
+      }
+    }
+  }
+  .navbar-start {
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+  .navbar-end {
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+}
+
+.navbar-end {
+  order:1
+}
+
+
+button.navbar-item {
+  @extend a.navbar-item;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+
+.desktop-nav {
+  @include until-widescreen {
+    display: none;
+  }
+}
+.touch-nav {
+  @include widescreen {
+    display: none;
+  }
+}

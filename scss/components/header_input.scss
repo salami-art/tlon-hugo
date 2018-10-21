@@ -1,0 +1,45 @@
+%absolute-full-size {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.header-input {
+  @extend %absolute-full-size;
+  background-color: black;
+  color: white;
+  z-index: 1;
+  display: flex;
+  &__input {
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    color: inherit;
+    outline: none;
+    appearance: none;
+    padding: 1rem;
+    font-size: 1.3rem;
+    @include tablet {
+      font-size: 2rem;
+      padding: 1rem 2rem;
+    }
+  }
+  &__close {
+    height: 50px!important;
+    max-height: 50px!important;
+    max-width: 50px!important;
+    min-height: 50px!important;
+    min-width: 50px!important;
+    width: 50px!important;
+  }
+}
+
+/* ALGOLIA */
+.ais-SearchBox-input {
+  @extend .header-input__input;
+}
+.ais-InstantSearch__root, .ais-SearchBox-form {
+  @extend %absolute-full-size;
+}

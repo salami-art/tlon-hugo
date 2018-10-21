@@ -1,0 +1,53 @@
+@mixin single() {
+  &__image {
+    width: 100%;
+  }
+  &__image-wrapper {
+    margin: 0 -1rem;
+  }
+  &__text {
+    margin: 0 2rem;
+  }
+  &__subtitle {
+    margin: 1rem 0;
+  }
+  &__details {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    &.author {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post-page {
+  @include single;
+}
+
+.event-page {
+  @include single;
+  color: #E1E1E1;
+  &__title {
+    border-bottom: none;
+    text-transform: none;
+  }
+  &__title-wrapper, &__subtitle {
+    width: 50%;
+    display: inline-block;
+  }
+  &__text {
+    @extend %event-text;
+  }
+  &__image-wrapper {
+    margin: 0;
+  }
+  &__subtitle {
+    margin-top: 0;
+  }
+}
+/* WTF the other one doesn't work, go figure */
+.columns.event-page__title-wrapper {
+  margin: 2rem -0.75rem;
+  border-top: 1rem solid;
+}

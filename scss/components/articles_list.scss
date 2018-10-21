@@ -1,0 +1,36 @@
+.articles-list {
+  padding: 2rem 1rem;
+  &__title {
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom:1rem;
+  }
+  &__image {
+    width: 100%;
+    display: block;
+  }
+  &__excerpt {
+    &> p {
+      font-size: .9rem;
+      line-height: 1.2;
+    }
+  }
+  &__details {
+    color: white;
+    background-color: #d4000d;
+    padding: .67rem;
+    &+& {
+      padding-top: 0;
+    }
+  }
+  &__author {
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    text-align: right;
+    text-decoration: underline;
+  }
+
+}

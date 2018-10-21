@@ -9,29 +9,33 @@
 // 5. Finish off with any theme specific customizations.
 
 // 1 
-@import "bulmaswatch/flatly/variables";
+@import "bulma/sass/utilities/initial-variables";
+@import "bulma/sass/utilities/functions";
+@import "bulma/sass/utilities/mixins";
 // 2 
-$body-size:16px; 
-$link: hsl(217, 71%,  53%);
-$family-sans-serif: "Open Sans", system-ui, sans-serif;
-$family-primary: $family-sans-serif;
-$family-monospace: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+$navbar-padding-vertical: 1rem;
+$navbar-padding-horizontal: 2rem;
+$navbar-background-color: black;
+$navbar-item-color: $grey-light;
+$navbar-item-hover-color: white;
+$navbar-item-hover-background-color: black;
 // 3
+
 @import "bulma/bulma";
 // 4
-@import "bulmaswatch/flatly/overrides";
+// @import "bulmaswatch/flatly/overrides";
 // 5
 
 // Providing syntax highlighting theme:
-@import 'chroma-sass-themes/scss/taapaca';
+// @import 'chroma-sass-themes/scss/taapaca';
 // @import 'chroma-sass-themes/scss/vimspectrgrey-dark';
 // @import 'chroma-sass-themes/scss/vimspectr210-light';
 // @import 'chroma-sass-themes/scss/github';
 // Defines a future-proof "system-ui" font using local system font face declarations
-@import 'system-font-css/system-font';
+// @import 'system-font-css/system-font';
 
 // Optional!
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i);
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i);
 
 // make footer background on short pages seem infinite
 html {
@@ -44,3 +48,148 @@ body > section {
 		padding: 0px !important;
 	}
 }
+
+%clear-after {
+	&::after {
+	  content: "";
+	  clear: both;
+	  display: block;
+	}
+  }
+  
+  %animated-up {
+	transform: translateY(50%);
+	opacity: 0;
+	transition: all .3s ease;
+	&.in-view {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  .animated-up {
+	@extend %animated-up;
+  }
+  
+  %event-text {
+	&:first-child {
+	  border-top: 1rem solid;
+	  margin-top: 2rem;
+	}
+	border-bottom: 1px solid;
+	margin-top: 1rem;
+	padding: 1rem 0;
+  }
+  
+  body, button, input, select, textarea {
+	  font-family: Helvetica;
+  }
+  
+  strong, label, label.label {
+	color:inherit;
+  }
+  @import "./components/single";
+  @import "./components/header_input";
+  @import "./components/header";
+  @import "./components/posts_filters";
+  @import "./components/snipcart_cart";
+  @import "./components/events_list";
+  @import "./components/articles_list";
+  @import "./components/full_screen_menu";
+  @import "./components/collapsable";
+  
+  section.section {
+	padding: 0 1rem 3rem;
+  
+  }
+  .columns {
+	@extend %clear-after;
+  }
+  
+  html.dark {
+	background-color: #232428;
+  }
+  h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	border-bottom-width: .2rem;
+	border-bottom-style: solid;
+	line-height: 1;
+	padding-top: 1rem;
+	display: block;
+	text-align: right;
+	font-weight: 600;
+  }
+  
+  
+  
+  p {
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+  }
+  
+  .sd-title, .sd-content {
+	display: none;
+  }
+  
+  .vertical-posts {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-content: stretch;
+	align-items: stretch;
+	&>* {
+	  order: 0;
+	  flex: 0 1 auto;
+	  align-self: auto;
+	}
+  }
+  
+  
+  .post-card {
+	display: block;
+	position: relative;
+	&__overlay {
+	  position: absolute;
+	}
+	&__text {
+	  color: black;
+	  background-color: white;
+	  margin: 4rem 2rem;
+	  padding: .2rem .5rem;
+	  font-size: .9rem;
+	  &:hover {
+		text-decoration: underline;
+	  }
+	}
+	&__category {
+	  text-transform: uppercase;
+	  font-weight: bold;
+	  display: block;
+	}
+	&__title {
+	  font-weight: bold;
+	  display: block;
+	  margin-bottom: 1rem;
+	}
+	&__image {
+	  object-fit: cover;
+	  width: 100%;
+	}
+	&--half-height {
+	  .post-card__image {
+		object-fit: cover;
+		width: 100%;
+	  }
+	  .post-card__text {
+		display: none;
+	  }
+	}
+  }
+  
+  .collage {
+	&__image {
+	  width: 100%;
+	}
+  }
+  
